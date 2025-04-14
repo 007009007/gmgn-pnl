@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GMGN 风格收益图生成器</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    canvas {
+      margin-top: 20px;
+      border: 1px solid #444;
+    }
+    .label {
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>GMGN 风格收益图生成器</h1>
+
+  <form id="inputForm">
+    <div>
+      <div class="label">代币合约地址（Solana）</div>
+      <input type="text" id="tokenAddress" placeholder="如：So11111111111111111111111111111111111111112" required>
+    </div>
+
+    <div>
+      <div class="label">期望倍数（%）</div>
+      <input type="number" step="0.01" id="gain" placeholder="如：248.65" required>
+    </div>
+
+    <div>
+      <div class="label">上传头像（可选）</div>
+      <input type="file" id="avatarUpload" accept="image/*">
+    </div>
+
+    <div>
+      <div class="label">钱包地址（可选）</div>
+      <input type="text" id="walletAddress" placeholder="如：9fZpJ...m4P">
+    </div>
+
+    <button type="submit">生成收益图</button>
+  </form>
+
+  <canvas id="outputCanvas" width="1200" height="675"></canvas><br>
+  <button onclick="downloadImage()">下载图片</button>
+
+  <script src="generator.js"></script>
+</body>
+</html>
